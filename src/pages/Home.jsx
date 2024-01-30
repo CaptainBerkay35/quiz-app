@@ -1,11 +1,17 @@
 import { useState } from "react";
 import logo from "../logo.svg";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const [username, setUsername] = useState();
+  const navigate = useNavigate();
 
   function saveUsername(event) {
     setUsername(event.target.value);
+  }
+
+  function handleStartClick() {
+    navigate("/quiz"); 
   }
 
   return (
@@ -19,10 +25,13 @@ export default function Home() {
       <input
         type="text"
         className="border-2 border-blue-900 rounded mb-4 h-8"
-        value={username} 
-        onChange={saveUsername} 
+        value={username}
+        onChange={saveUsername}
       />
-      <button className="bg-white px-12 py-3 rounded-lg text-blue-600 font-bold border-2 border-blue-900 shadow-xl ">
+      <button
+        className="bg-white px-12 py-3 rounded-lg text-blue-600 font-bold border-2 border-blue-900 shadow-xl "
+        onClick={handleStartClick}
+      >
         Start
       </button>
     </div>
