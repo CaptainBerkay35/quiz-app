@@ -6,7 +6,7 @@ export default function QuizPage() {
   const location = useLocation();
   const username = location.state?.username || "";
   return (
-    <div className="bg-gradient-to-t from-Salmon to-purple-200 h-screen flex flex-col ">
+    <div className="bg-gradient-to-t from-Nude to-Sage h-screen flex flex-col ">
       <div className="h-screen flex  justify-center items-center ">
         <Quiz username={username}></Quiz>
       </div>
