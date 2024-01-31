@@ -14,13 +14,13 @@ export default function Result({ finalScore, questionNumber, restartGame }) {
       </div>
       <div className="flex">
         <button
-          className="border-2  rounded-md border-white text-white  w-52  px-12 py-2 m-1"
+          className="border-2  rounded-md border-white text-white  w-52  px-12 py-2 m-1 hover:bg-white hover:text-Font hover:border-Sage"
           onClick={navigateToMainMenu}
         >
           Main Menu
         </button>
         <button
-          className="border-2 rounded-md border-white text-white w-52 px-12 py-2 m-1"
+          className="border-2 rounded-md border-white text-white w-52 px-12 py-2 m-1 hover:bg-white hover:text-Font hover:border-Sage"
           onClick={restartGame}
         >
           Restart Game
