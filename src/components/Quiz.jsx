@@ -9,7 +9,7 @@ export default function Quiz({ username }) {
   useEffect(() => {
     const getRandomQuestions = () => {
       const randomIndices = [];
-      while (randomIndices.length < 5) {
+      while (randomIndices.length < 10) {
         const randomIndex = Math.floor(Math.random() * questions.length);
         if (!randomIndices.includes(randomIndex)) {
           randomIndices.push(randomIndex);
@@ -42,7 +42,7 @@ export default function Quiz({ username }) {
         <h2 className="text-white text-xl mb-4">{selectedQuestions[currentQuestion].text}</h2>
         {selectedQuestions[currentQuestion].options.map((option, index) => (
           <div className="mb-2" key={index}>
-            <button className="border-4 border-white text-white px-36 py-2" onClick={handleOptionSelect}>
+            <button className="border-4 border-white text-white px-36 py-2 " onClick={handleOptionSelect}>
               {option.text}
             </button>
           </div>
