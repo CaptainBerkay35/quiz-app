@@ -53,14 +53,31 @@ export default function Tutorial() {
               </svg>
             </button>
           </div>
-          <div>
-            <p className="text-lg mb-2">
-              Welcome to <span className="font-bold">Quizo</span> player
-            </p>
-            <p className="text-lg">
-              While challenging yourself there are things that you should care
-              about.Time is not your friend as always.
-            </p>
+          <div className="flex flex-col justify-center items-center">
+            <div>
+              <p className="text-lg mb-4">
+                Welcome to <span className="font-bold">Quizo</span> player
+              </p>
+              <p className="text-lg mb-4">
+                While challenging yourself there are things that you should care
+                about.Time is not your friend as always.There is nothing you can
+                do to stop time.
+              </p>
+            </div>
+            <div className="flex  items-center justify-center">
+              <p className="text-lg">
+                Dont think that we are so cruel.You have 1 Joker to use.With
+                this joker you can delete 2 wrong answer for a question.But you
+                can only this one time.
+              </p>
+              <div
+                className={
+                  "bg-Font border-2 border-Misty rounded-full h-12 w-12 p-0.5 flex items-center justify-center "
+                }
+              >
+                <h1 className="font-bold text-xl text-Cream">50%</h1>
+              </div>
+            </div>
           </div>
         </div>
       </div>
