@@ -10,7 +10,7 @@ export default function Quiz({ username }) {
   const [score, setScore] = useState(0);
   const [isQuizCompleted, setIsQuizCompleted] = useState(false);
   const [feedback, setFeedback] = useState(null);
-  const [usedHint, setUsedHint] = useState(false); // Joker hakkı kullanıldı mı?
+  const [usedHint, setUsedHint] = useState(false); 
   const totalQuestions = selectedQuestions.length;
 
   const getRandomQuestions = () => {
@@ -64,24 +64,23 @@ export default function Quiz({ username }) {
     setScore(0);
     setIsQuizCompleted(false);
     setFeedback(null);
-    setUsedHint(false); // Oyun yeniden başlatıldığında joker hakkını sıfırla
+    setUsedHint(false); 
     getRandomQuestions();
   };
 
   const useHint = () => {
-    if (!usedHint) {
-      // Joker hakkı kullanılmadıysa devam et
+    if (!usedHint && !isQuizCompleted) {
+      
       const currentQuestionObj = selectedQuestions[currentQuestion];
       const wrongIndexes = currentQuestionObj.options
-        .map((option, index) => (option.isCorrect ? -1 : index)) // Yanlış cevapların indexlerini bul
+        .map((option, index) => (option.isCorrect ? -1 : index))
         .filter((index) => index !== -1);
 
-      // İlk iki yanlış cevabı sil
       currentQuestionObj.options.splice(wrongIndexes[0], 1);
       currentQuestionObj.options.splice(wrongIndexes[1] - 1, 1);
 
-      setUsedHint(true); // Joker hakkını kullanıldı olarak işaretle
-      setSelectedQuestions([...selectedQuestions]); // State'i güncelle
+      setUsedHint(true); 
+      setSelectedQuestions([...selectedQuestions]); 
     }
   };
 

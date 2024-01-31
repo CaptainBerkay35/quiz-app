@@ -5,10 +5,10 @@ export default function Result({ finalScore, questionNumber, restartGame }) {
     navigate("/");
   }
   return (
-    <div className="bg-Salmon rounded-xl flex flex-col justify-center items-center">
+    <div className="bg-Salmon border-t-4 border-Cream flex flex-col justify-center items-center ">
       <div className="flex flex-col items-center mb-4">
-        <h1 className="text-xl font-bold text-black">Final Results</h1>
-        <p className="text-xl ">
+        <h1 className="text-xl font-bold text-Cream mt-2">Final Results</h1>
+        <p className="text-xl text-Cream">
           Score : {finalScore}/{questionNumber}
         </p>
       </div>
