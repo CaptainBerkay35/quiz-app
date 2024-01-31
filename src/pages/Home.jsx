@@ -1,5 +1,6 @@
 import { useState } from "react";
 import logo from "../logo.svg";
+import logoPink from "../logo_alt_pink.svg";
 import { useNavigate } from "react-router-dom";
 import Tutorial from "../components/Tutorial";
 
@@ -21,9 +22,9 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-gradient-to-t from-Salmon to-purple-200 h-screen flex flex-col ">
+    <div className="bg-gradient-to-t from-Nude to-Sage h-screen flex flex-col ">
       <div className="h-screen flex flex-col justify-center items-center ">
-        <img className="mb-4 w-20" src={logo} alt="Logo" />
+        <img className="mb-4 w-20 text-red-500" src={logoPink} alt="Logo" />
         <h1 className="text-white font-bold text-3xl mb-4">Quizo</h1>
         <p className="text-white w-72 text-center leading-loose mb-4">
           Are you ready to test your knowledge?Before you move on to challange
@@ -31,15 +32,15 @@ export default function Home() {
         </p>
         <input
           type="text"
-          className="border-2 border-blue-900 rounded mb-4 h-8"
+          className="border-2 border-White rounded mb-4 h-8 bg-Misty"
           value={username}
           onChange={saveUsername}
         />
         <button
-          className="bg-white px-12 py-3 rounded-lg text-blue-600 font-bold border-2 border-blue-900 shadow-xl mb-4"
+          className="bg-Sage px-12 py-3 rounded-lg text-Cream font-bold border-2 border-Cream shadow-xl mb-4 hover:bg-white hover:text-Font hover:border-Sage"
           onClick={handleStartClick}
         >
-          Start
+          START
         </button>
         {showAlert && (
           <div

@@ -6,12 +6,13 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        'Aquamarine':'#74BDCB',
-        'Salmon':'#FFA384',
-        'Freesia':'#EFE7BC',
-        'Baby-blue':'#E7F2F8',
+        'Nude':'#BCA88E',
+        'Misty':'#E3E8E9',
+        'Sage':'#9DA993',
+        'Rosewater':'#E4B4B4',
         'Cream':'#F9F1F0',
         'Rose-Quartz':'#FADCD9',
+        'Font':'#64804d',
       },
     },
   },

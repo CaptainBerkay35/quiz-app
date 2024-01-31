@@ -8,7 +8,7 @@ export default function Result({ finalScore, questionNumber, restartGame }) {
     <div className="bg-Salmon rounded-xl flex flex-col justify-center items-center">
       <div className="flex flex-col items-center mb-4">
         <h1 className="text-xl font-bold text-black">Final Results</h1>
-        <p className="text-xl">
+        <p className="text-xl ">
           Score : {finalScore}/{questionNumber}
         </p>
       </div>

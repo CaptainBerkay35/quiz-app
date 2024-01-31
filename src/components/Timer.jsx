@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 export default function Timer({ resetTimer }) {
-    const [timer, setTimer] = useState(5);
+    const [timer, setTimer] = useState(1000);
 
     useEffect(() => {
         let interval;
@@ -17,12 +17,12 @@ export default function Timer({ resetTimer }) {
     }, [timer]);
 
     useEffect(() => {
-        setTimer(5);
+        setTimer(1000);
     }, [resetTimer]);
 
     return (
-        <div className="bg-black border-2-black rounded-full px-2 py-1 flex items-center justify-center">
-            <p className="text-bold text-xl text-white">{timer}</p>
+        <div className="bg-Nude border-2 border-Misty rounded-full px-4 py-2 flex items-center justify-center">
+            <p className="font-bold text-xl text-Cream">{timer}</p>
         </div>
     );
 }
