@@ -10,8 +10,12 @@ export default function Home() {
   const navigate = useNavigate();
 
   function saveUsername(event) {
-    setUsername(event.target.value);
+    const input = event.target.value;
+    if (input.length <= 14) {
+      setUsername(input);
+    }
   }
+  
 
   function handleStartClick() {
     if (username.trim() !== "") {
