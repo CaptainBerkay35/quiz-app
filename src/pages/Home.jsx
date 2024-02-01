@@ -66,7 +66,7 @@ export default function Home() {
           </div>
 
           <button
-            className="bg-Sage px-12 py-3 rounded-lg transition ease-in-out delay-100 text-Cream font-bold border-2 border-Cream shadow-xl hover:bg-white hover:text-Font hover:border-Sage"
+            className="bg-Sage px-12 py-3 w-44 rounded-lg transition ease-in-out delay-100 text-Cream font-bold border-2 border-Cream shadow-xl hover:bg-white hover:text-Font hover:border-Sage"
             onClick={handleStartClick}
           >
             START <p className="uppercase">{category}</p>

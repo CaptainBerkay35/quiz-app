@@ -73,7 +73,7 @@ export default function Tutorial() {
               <p className="text-lg">
                 Dont think that we are so cruel.You have 1 Joker to use.With
                 this joker you can delete 2 wrong answer for a question.But you
-                can only this one time.
+                can only use this one time.
               </p>
               <div
                 className={
