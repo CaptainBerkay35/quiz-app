@@ -45,13 +45,13 @@ export default function Result({
       </div>
       <div className="flex">
         <button
-          className="border-2  rounded-md border-white text-white  w-52  px-12 py-2 m-1 hover:bg-white hover:text-Font hover:border-Sage"
+          className="border-2  rounded-md border-white text-white  w-52  px-12 py-2 m-1 transition ease-in-out delay-100 hover:bg-white hover:text-Font hover:border-Sage"
           onClick={navigateToMainMenu}
         >
           Main Menu
         </button>
         <button
-          className="border-2 rounded-md border-white text-white w-52 px-12 py-2 m-1 hover:bg-white hover:text-Font hover:border-Sage"
+          className="border-2 rounded-md border-white text-white w-52 px-12 py-2 m-1 transition ease-in-out delay-100 hover:bg-white hover:text-Font hover:border-Sage"
           onClick={restartGame}
         >
           Restart Game
@@ -59,7 +59,7 @@ export default function Result({
       </div>
       <div>
         <button
-          className=" text-white w-52 px-12 py-1 m-1 hover:bg-white hover:text-Font hover:border-Sage"
+          className=" text-white w-52 px-12 py-1 m-1 transition ease-in-out delay-150 hover:bg-white hover:text-Font hover:border-Sage"
           onClick={handleScoreboard}
         >
           Scoreboard
@@ -69,7 +69,7 @@ export default function Result({
         <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <div className="w-96 h-96 bg-Nude border-4 border-Sage rounded-2xl p-4 shadow-2xl overflow-y-auto">
             <div className="flex justify-end">
-              <button onClick={handleClose}>
+              <button className="hover:scale-110 hover:opacity-50" onClick={handleClose}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

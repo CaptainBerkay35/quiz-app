@@ -2,9 +2,11 @@ import { useState } from "react";
 
 export default function Tutorial() {
   const [showInfo, setShowInfo] = useState(false);
+  const [isClicked,setIsClicked] = useState(false);
 
   function handleClick() {
     setShowInfo(!showInfo);
+    setIsClicked(true);
   }
 
   function handleClose() {
@@ -12,7 +14,10 @@ export default function Tutorial() {
   }
   return (
     <div>
-      <button onClick={handleClick}>
+      <button
+        className={`hover:scale-110 ${!isClicked ? 'animate-shake' : ''}`}
+        onClick={handleClick}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -33,9 +38,9 @@ export default function Tutorial() {
           showInfo ? "block" : "hidden"
         }`}
       >
-        <div className="w-96 h-96 bg-Nude border-4 border-Sage rounded-2xl p-4 shadow-2xl">
+        <div className="w-96 h-96 bg-Nude border-4 border-Sage rounded-2xl p-2 shadow-2xl">
           <div className="flex justify-end">
-            <button onClick={handleClose}>
+            <button className="hover:scale-110 hover:opacity-50" onClick={handleClose}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

@@ -130,14 +130,14 @@ export default function Quiz({ username ,category}) {
       </div>
 
       <div className="flex flex-col items-center p-2">
-        <h2 className="text-white text-xl  text-center min-h-14">
+        <h2 className="text-white text-xl  text-center min-h-14 my-2">
           {selectedQuestions[currentQuestion].text}
         </h2>
 
         {selectedQuestions[currentQuestion].options.map((option, index) => (
           <div className="m-1 w-120 h-18" key={index}>
             <button
-              className={`border-4 text-white w-80 h-10 rounded-lg  ${
+              className={`border-4 text-white w-80 h-10 rounded-lg transition ease-in-out  hover:bg-opacity-20 hover:bg-Font ${
                 feedback === "correct" && option.isCorrect
                   ? "border-green-500"
                   : feedback === index && !option.isCorrect
