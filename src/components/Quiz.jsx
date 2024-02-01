@@ -23,7 +23,7 @@ export default function Quiz({ username ,category}) {
     } else if (category === "history") {
       selectedQuestionsData = questionsHistory;
     } else {
-      selectedQuestionsData = questions; // Varsayılan olarak bilim kategorisini kullan
+      selectedQuestionsData = questions; 
     }
   
     const randomIndices = [];
@@ -33,7 +33,10 @@ export default function Quiz({ username ,category}) {
         randomIndices.push(randomIndex);
       }
     }
-    const selectedQuestions = randomIndices.map((index) => selectedQuestionsData[index]);
+    const selectedQuestions = randomIndices.map((index) => ({
+      ...selectedQuestionsData[index],
+      options: [...selectedQuestionsData[index].options], // Orijinal seçenekleri kopyala
+    }));
     setSelectedQuestions(selectedQuestions);
   };
 
@@ -121,7 +124,7 @@ export default function Quiz({ username ,category}) {
         <div className="w-36  py-1 flex items-center justify-center overflow-x-hidden ">
           <h1 className=" font-bold text-lg text-Cream">{username}</h1>
         </div>
-        <Timer resetTimer={resetTimer} />
+        {!isQuizCompleted && <Timer resetTimer={resetTimer}/>}
         <div className="w-36  py-1 flex items-center justify-center">
           <h2 className="font-bold text-lg text-Cream">
             {currentQuestion + 1}/{totalQuestions}

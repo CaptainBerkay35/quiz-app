@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 export default function Timer({ resetTimer }) {
-    const [timer, setTimer] = useState(99);
+    const [timer, setTimer] = useState(40);
 
     useEffect(() => {
         let interval;
@@ -10,14 +10,13 @@ export default function Timer({ resetTimer }) {
                 setTimer(prevTimer => prevTimer - 1);
             }, 1000);
         } else {
-            resetTimer(); // Süre dolduğunda resetTimer fonksiyonunu çağırarak yeni soruya geç.
+            resetTimer(); 
         }
 
         return () => clearInterval(interval);
     }, [timer]);
-
     useEffect(() => {
-        setTimer(99);
+        setTimer(40);
     }, [resetTimer]);
 
     return (
