@@ -57,7 +57,8 @@ export default function Tutorial() {
               <p className="text-lg mb-4">
                 Welcome to <span className="font-bold">Quizo</span> player
               </p>
-              <p className="text-lg mb-4">
+              <p className="text-lg mb-2">
+                Choose one category and challange yourself.
                 While challenging yourself there are things that you should care
                 about.Time is not your friend as always.There is nothing you can
                 do to stop time.

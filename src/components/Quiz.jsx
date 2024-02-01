@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import questions from "../Questions";
+import questions from "../QuestionsScience";
+import questionsHistory from "../QuestionsHistory";
 import Result from "./Result";
 import Timer from "./Timer";
 import Hint from "./Hint";
 import { saveScoreToLocalStorage } from "../Utils";
 
-export default function Quiz({ username }) {
+export default function Quiz({ username ,category}) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedQuestions, setSelectedQuestions] = useState([]);
   const [score, setScore] = useState(0);
@@ -13,26 +14,37 @@ export default function Quiz({ username }) {
   const [feedback, setFeedback] = useState(null);
   const [usedHint, setUsedHint] = useState(false);
   const totalQuestions = selectedQuestions.length;
+  
 
-  const getRandomQuestions = () => {
+  const getRandomQuestions = (category) => {
+    let selectedQuestionsData;
+    if (category === "science") {
+      selectedQuestionsData = questions;
+    } else if (category === "history") {
+      selectedQuestionsData = questionsHistory;
+    } else {
+      selectedQuestionsData = questions; // Varsayılan olarak bilim kategorisini kullan
+    }
+  
     const randomIndices = [];
     while (randomIndices.length < 10) {
-      const randomIndex = Math.floor(Math.random() * questions.length);
+      const randomIndex = Math.floor(Math.random() * selectedQuestionsData.length);
       if (!randomIndices.includes(randomIndex)) {
         randomIndices.push(randomIndex);
       }
     }
-    const selectedQuestions = randomIndices.map((index) => questions[index]);
+    const selectedQuestions = randomIndices.map((index) => selectedQuestionsData[index]);
     setSelectedQuestions(selectedQuestions);
   };
 
   useEffect(() => {
-    getRandomQuestions();
-  }, []);
+    getRandomQuestions(category);
+  }, [category]);
+
 
   useEffect(() => {
     if (isQuizCompleted) {
-      saveScoreToLocalStorage(username, score);
+      saveScoreToLocalStorage(username, score, category); 
     }
   }, [isQuizCompleted]);
 
@@ -87,7 +99,7 @@ export default function Quiz({ username }) {
     setIsQuizCompleted(false);
     setFeedback(null);
     setUsedHint(false);
-    getRandomQuestions();
+    getRandomQuestions(category);
   };
 
   if (totalQuestions === 0) {
@@ -149,6 +161,7 @@ export default function Quiz({ username }) {
           questionNumber={totalQuestions}
           restartGame={restartGame}
           username={username}
+          category={category}
         ></Result>
       )}
     </div>

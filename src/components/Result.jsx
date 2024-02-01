@@ -6,6 +6,7 @@ export default function Result({
   questionNumber,
   restartGame,
   username,
+  category,
 }) {
   const navigate = useNavigate();
   const [openScoreboard, setOpenScoreboard] = useState(false);
@@ -94,8 +95,9 @@ export default function Result({
                     key={index}
                   >
                     <p>
-                      {score.username} : {score.finalScore}
+                      {score.username}'s Score : {score.finalScore}
                     </p>
+                    <p>Category: {score.category}</p>
                     <p>Date: {formatDate(score.date)}</p>
                   </li>
                 ))}
