@@ -5,7 +5,6 @@ export default function Tutorial() {
 
   function handleClick() {
     setShowInfo(!showInfo);
-    console.log("button clicked");
   }
 
   function handleClose() {

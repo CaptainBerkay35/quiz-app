@@ -3,6 +3,7 @@ import questions from "../Questions";
 import Result from "./Result";
 import Timer from "./Timer";
 import Hint from "./Hint";
+import { saveScoreToLocalStorage } from "../Utils";
 
 export default function Quiz({ username }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -10,7 +11,7 @@ export default function Quiz({ username }) {
   const [score, setScore] = useState(0);
   const [isQuizCompleted, setIsQuizCompleted] = useState(false);
   const [feedback, setFeedback] = useState(null);
-  const [usedHint, setUsedHint] = useState(false); 
+  const [usedHint, setUsedHint] = useState(false);
   const totalQuestions = selectedQuestions.length;
 
   const getRandomQuestions = () => {
@@ -28,6 +29,12 @@ export default function Quiz({ username }) {
   useEffect(() => {
     getRandomQuestions();
   }, []);
+
+  useEffect(() => {
+    if (isQuizCompleted) {
+      saveScoreToLocalStorage(username, score);
+    }
+  }, [isQuizCompleted]);
 
   const handleOptionSelect = (isCorrect, index) => {
     if (currentQuestion < totalQuestions - 1) {
@@ -59,18 +66,8 @@ export default function Quiz({ username }) {
     setCurrentQuestion((prev) => prev + 1);
   };
 
-  const restartGame = () => {
-    setCurrentQuestion(0);
-    setScore(0);
-    setIsQuizCompleted(false);
-    setFeedback(null);
-    setUsedHint(false); 
-    getRandomQuestions();
-  };
-
   const useHint = () => {
     if (!usedHint && !isQuizCompleted) {
-      
       const currentQuestionObj = selectedQuestions[currentQuestion];
       const wrongIndexes = currentQuestionObj.options
         .map((option, index) => (option.isCorrect ? -1 : index))
@@ -79,9 +76,18 @@ export default function Quiz({ username }) {
       currentQuestionObj.options.splice(wrongIndexes[0], 1);
       currentQuestionObj.options.splice(wrongIndexes[1] - 1, 1);
 
-      setUsedHint(true); 
-      setSelectedQuestions([...selectedQuestions]); 
+      setUsedHint(true);
+      setSelectedQuestions([...selectedQuestions]);
     }
+  };
+
+  const restartGame = () => {
+    setCurrentQuestion(0);
+    setScore(0);
+    setIsQuizCompleted(false);
+    setFeedback(null);
+    setUsedHint(false);
+    getRandomQuestions();
   };
 
   if (totalQuestions === 0) {
@@ -100,12 +106,11 @@ export default function Quiz({ username }) {
       }`}
     >
       <div className="flex justify-between items-center w-full px-4 ">
-        <div className="  py-1 flex items-center justify-center">
-          <h1 className="font-bold text-lg text-Cream">{username}</h1>
+        <div className="w-36  py-1 flex items-center justify-center overflow-x-hidden ">
+          <h1 className=" font-bold text-lg text-Cream">{username}</h1>
         </div>
-
         <Timer resetTimer={resetTimer} />
-        <div className="  py-1 flex items-center justify-center">
+        <div className="w-36  py-1 flex items-center justify-center">
           <h2 className="font-bold text-lg text-Cream">
             {currentQuestion + 1}/{totalQuestions}
           </h2>
@@ -135,7 +140,7 @@ export default function Quiz({ username }) {
           </div>
         ))}
       </div>
-      <div className="m-1">
+      <div >
         <Hint useHint={useHint} disabled={usedHint} />
       </div>
       {isQuizCompleted && (
@@ -143,6 +148,7 @@ export default function Quiz({ username }) {
           finalScore={score}
           questionNumber={totalQuestions}
           restartGame={restartGame}
+          username={username}
         ></Result>
       )}
     </div>
