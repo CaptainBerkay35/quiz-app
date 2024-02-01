@@ -1,6 +1,7 @@
-export const saveScoreToLocalStorage = (username, finalScore) => {
+export const saveScoreToLocalStorage = (username, finalScore, category) => {
     const existingScores = JSON.parse(localStorage.getItem("quizScores")) || [];
-    const newScore = { username, finalScore, date: new Date().toISOString() };
+    const newScore = { username, finalScore, category, date: new Date().toISOString() }; 
     const updatedScores = [...existingScores, newScore];
     localStorage.setItem("quizScores", JSON.stringify(updatedScores));
   };
+  
