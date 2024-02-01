@@ -37,7 +37,9 @@ export default function Home() {
         </p>
         <input
           type="text"
-          className={`border-2 rounded mb-4 h-8 bg-Misty ${isInputFocused ? 'border-white text-Font' : 'border-White text-Font'}`}
+          className={`border-2 rounded mb-4 h-8 bg-Misty ${
+            isInputFocused ? "border-white text-Font" : "border-White text-Font"
+          }`}
           value={username}
           onFocus={() => setIsInputFocused(true)}
           onBlur={() => setIsInputFocused(false)}
@@ -54,7 +56,7 @@ export default function Home() {
             </label>
             <select
               id="categories"
-              className="bg-Sage border border-gray-300 text-white text-sm rounded-lg focus:ring-white focus:border-white block w-full p-2.5 "
+              className="bg-Sage border  text-center border-gray-300 text-white text-sm rounded-lg focus:ring-white focus:border-white block w-full p-2.5 "
               value={category}
               onChange={(e) => setCategory(e.target.value)}
             >
@@ -64,7 +66,7 @@ export default function Home() {
           </div>
 
           <button
-            className="bg-Sage px-12 py-3 rounded-lg text-Cream font-bold border-2 border-Cream shadow-xl hover:bg-white hover:text-Font hover:border-Sage"
+            className="bg-Sage px-12 py-3 rounded-lg transition ease-in-out delay-100 text-Cream font-bold border-2 border-Cream shadow-xl hover:bg-white hover:text-Font hover:border-Sage"
             onClick={handleStartClick}
           >
             START <p className="uppercase">{category}</p>
