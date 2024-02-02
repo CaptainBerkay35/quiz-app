@@ -1,6 +1,7 @@
 import Quiz from "../components/Quiz";
 import Tutorial from "../components/Tutorial";
 import { useLocation } from "react-router-dom";
+import logoPink from "../logo_alt_pink.svg";
 
 export default function QuizPage() {
   const location = useLocation();
@@ -11,7 +12,7 @@ export default function QuizPage() {
       <div className="h-screen flex  justify-center items-center ">
         <Quiz username={username} category={category}></Quiz>
       </div>
-      <div className="flex justify-end pr-8 pb-4">
+      <div className="flex justify-end pr-8 ">
         <Tutorial></Tutorial>
       </div>
     </div>

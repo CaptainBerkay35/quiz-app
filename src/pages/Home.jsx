@@ -83,7 +83,7 @@ export default function Home() {
           </div>
         )}
       </div>
-      <div className="flex justify-end pr-8 pb-4">
+      <div className="flex justify-end pr-8 ">
         <Tutorial></Tutorial>
       </div>
     </div>

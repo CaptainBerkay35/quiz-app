@@ -183,7 +183,7 @@ export default function Quiz({ username ,category}) {
         ))}
       </div>
       <div >
-        <Hint useHint={useHint} disabled={usedHint} />
+        <Hint useHint={useHint} disabled={usedHint} isQuizCompleted={isQuizCompleted} />
       </div>
       {isQuizCompleted && (
         <Result
