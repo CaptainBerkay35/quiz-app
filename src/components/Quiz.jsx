@@ -35,7 +35,7 @@ export default function Quiz({ username ,category}) {
     }
     const selectedQuestions = randomIndices.map((index) => ({
       ...selectedQuestionsData[index],
-      options: [...selectedQuestionsData[index].options], // Orijinal seçenekleri kopyala
+      options: [...selectedQuestionsData[index].options], 
     }));
     setSelectedQuestions(selectedQuestions);
   };
@@ -75,6 +75,33 @@ export default function Quiz({ username ,category}) {
       }, 1000);
     }
   };
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem("quizData"));
+    if (storedData && storedData.category === category) {
+      setCurrentQuestion(storedData.currentQuestion);
+      setScore(storedData.score);
+      setIsQuizCompleted(storedData.isQuizCompleted);
+      setFeedback(storedData.feedback);
+      setUsedHint(storedData.usedHint);
+      setSelectedQuestions(storedData.selectedQuestions);
+    } else {
+      getRandomQuestions(category);
+    }
+  }, [category]);
+
+  useEffect(() => {
+    const dataToStore = {
+      currentQuestion,
+      score,
+      isQuizCompleted,
+      feedback,
+      usedHint,
+      selectedQuestions,
+      category
+    };
+    localStorage.setItem("quizData", JSON.stringify(dataToStore));
+  }, [currentQuestion, score, isQuizCompleted, feedback, usedHint, selectedQuestions, category]);
+
 
   const resetTimer = () => {
     setFeedback(null);
