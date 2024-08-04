@@ -1,3 +1,18 @@
+Quizo
+Quizo is an engaging quiz application built using React and styled with Tailwind CSS. This application offers users a choice between two exciting categories: History and Science. Answer challenging questions and test your knowledge within a limited time frame!
+
+Features
+Two Categories: Choose between History and Science.
+Timed Questions: Each question has a 40-second time limit.
+50/50 Lifeline: Use this lifeline once per quiz to eliminate two incorrect answers.
+Responsive Design: Optimized for all device sizes.
+
+Technologies Used
+React: A JavaScript library for building user interfaces.
+Tailwind CSS: A utility-first CSS framework for rapid UI development.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
